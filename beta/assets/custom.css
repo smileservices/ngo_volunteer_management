@@ -1,0 +1,26 @@
+.spacer_25 {height: 25px;}
+.spacer_50 {height: 50px;}
+.spacer_100 {height: 100px;}
+.roluri > tr:hover td {background-color: #ddd;cursor: hand;}
+.site-header img {width: 100%;}
+.top_nav {margin-bottom: 0px;}
+h1 { font-size: 2em; line-height: 1.375; margin: 1em 0 1.5em; color: #840201; background-color: #EFE5E5; padding: 0.5em;}
+
+/* pax */
+
+.navbar.navbar-inverse {border-top-left-radius: 0; border-top-right-radius: 0; border-top: 1px solid #999}
+#mainPanel {background-color: WhiteSmoke;  }
+#mainPanel .panel-heading h3 {font-weight: normal; font-size: 1.2em; opacity: 0.8  ; }
+#mainPanel .panel-body {padding: 1.5em}
+#mainPanel .panel-body img {max-width: 10em !important;  margin-right: 2em; display: none;}
+#mainPanel ul.nav-tabs {font-size: 1.2em;}
+.panel-body h3 {margin:0.5em 0; }
+#mainPanel ul.nav-tabs li:active a {}
+#mainPanel p {font-size: 1.1em;}
+#mainPanel .tab-content {border:1px solid #DDD; border-top: 1px solid transparent; padding: 0 1em;  background-color: White }
+#selectTitle {margin: 1em 0; padding: 1ex; font-weight: normal;}
+
+
+.cols2{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-gap:2.5em;-moz-column-gap:2.5em;column-gap:2.5em;} 
+.cols2 p{break-inside:avoid-column;-webkit-column-break-inside:avoid;page-break-inside:avoid;}
+
