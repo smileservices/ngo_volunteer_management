@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Dezvoltarea aplicatiei romaniacurata.ro/voluntari
+* Dezvoltarea aplicatiei romaniacurata.ro/proiecte-voluntari
 * aplicatie lucrata in Codeigniter (backend) + Bootstrap (frontend)
 
 ### How do I get set up? ###
