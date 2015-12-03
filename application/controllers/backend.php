@@ -212,7 +212,7 @@ class Backend extends CI_Controller {
 			redirect(base_url().'backend/index');
 
 		} else if ($this->input->post('submit') == 'delete') {
-			$this->voluntari_model->delete_match($this->input->post('match_rol_id'), 'rol');
+			$this->voluntari_model->delete_match($this->input->post('match-id'), 'match');
 			redirect(base_url().'backend/index');
 		}
 	}
