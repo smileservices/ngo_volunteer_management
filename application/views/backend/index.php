@@ -4,23 +4,20 @@
 				<h1 class="text-center">Managementul Proiectelor si Voluntarilor</h1>
 			</div>
 		</div>
-		<div class="row spacer_100">
-			
-		</div>
 
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="text-center"><button data-toggle="modal" data-target="#new_proiect" class="btn btn-success"><span class="glyphicon glyphicon-plus"> </span> Proiect Nou</button> Proiectele Active:</h2>
+				<h2 class="text-center">
+					<button data-toggle="modal" data-target="#new_proiect" class="btn btn-raised btn-success"><span class="glyphicon glyphicon-plus"> </span> Proiect Nou</button>
+					Proiectele Active:
+				</h2>
 			</div>
-		</div>
-		<div class="row spacer_50">
-			
 		</div>
 
 		<?php foreach ($proiecte as $proiect) { 
 			if ($proiect->activ==1) { ?>
 
-		<div class="row">
+		<div class="container panel panel-default">
 			<div class="col-md-2">
 				<a href="#" data-toggle="modal" data-target="#edit_pic" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-proiect-pic="<?= $proiect->pic ?>">
 				<img src="<?= base_url().'upload/img/'.$proiect->pic ?>" class="img img-responsive" alt="project_name"></a>

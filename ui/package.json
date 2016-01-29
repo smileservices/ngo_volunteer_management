@@ -1,0 +1,19 @@
+{
+  "name": "da",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-js": "node concat-js.js",
+    "build-css": "node concat-css.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-material-design": "^0.5.7",
+    "concat": "^1.0.0",
+    "imagesloaded": "^4.1.0",
+    "masonry-layout": "^4.0.0",
+    "min.css": "^1.3.0"
+  }
+}

@@ -1,8 +1,8 @@
 	</div> <!-- END CONTAINER -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
-	<script src="<?= base_url() ?>ui/js/bootstrap.min.js"></script>
+	<script src="<?= base_url() ?>ui/all.js"></script>
 
 	<script>
+		$.material.init();
 		//triggered when modal is about to be shown
 		$('#edit_rol').on('show.bs.modal', function(event) {
 
@@ -19,16 +19,14 @@
 		    $(event.currentTarget).find('textarea[name="rolSarcini"]').val(rolSarcini);
 		    $(event.currentTarget).find('input[name="rolTimp"]').val(rolTimp);
 		});
-	</script>
-	<script>
+
 		$('#create_rol').on('show.bs.modal', function(event) {
 		    //get data-id attribute of the clicked element
 		    var row = $(event.relatedTarget);
 		    var proiectId = row.data('proiect-id');
 		    $(event.currentTarget).find('input[name="proiectId"]').val(proiectId);
 		    });
-	</script>
-	<script>
+
 		$('#edit_proiect').on('show.bs.modal', function(event) {
 		    //get data-id attribute of the clicked element
 		    var row = $(event.relatedTarget);
@@ -43,8 +41,7 @@
 		    $(event.currentTarget).find('input[name="proiectPic"]').val(proiectPic);
 		    $(event.currentTarget).find('textarea[name="proiectDescriere"]').val(proiectDescriere);
 		    });
-	</script>
-	<script>
+
 		$('#edit_pic').on('show.bs.modal', function(event) {
 		    //get data-id attribute of the clicked element
 		    var row = $(event.relatedTarget);
@@ -55,8 +52,7 @@
 		    $(event.currentTarget).find('input[name="proiectPic"]').val(proiectPic);
 		    $(event.currentTarget).find('img[name="proiectPic"]').attr("src",proiectPicRoute);
 		    });
-	</script>
-		<script>
+
 		$('#edit_voluntar').on('show.bs.modal', function(event) {
 		    //get data-id attribute of the clicked element
 		    var row = $(event.relatedTarget);
@@ -77,8 +73,7 @@
 		    $(event.currentTarget).find('input[name="voluntarTimp"]').val(voluntarTimp);
 		    $(event.currentTarget).find('input[name="voluntarVarsta"]').val(voluntarVarsta);
 		    });
-	</script>
-	<script>
+
 		$('#edit_rol_voluntar').on('show.bs.modal', function(event) {
 		    //get data-id attribute of the clicked element
 		    var row = $(event.relatedTarget);
@@ -89,8 +84,7 @@
 		    $(event.currentTarget).find('select[name="match_rol_id"]').val(match_rol_id);
 		    $(event.currentTarget).find('input[name="match-id"]').val(match_id);
 		    });
-	</script>
-	<script>
+		
 		$('#adauga_rol_voluntar').on('show.bs.modal', function(event) {
 		    //get data-id attribute of the clicked element
 		    var row = $(event.relatedTarget);

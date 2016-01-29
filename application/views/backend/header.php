@@ -2,8 +2,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Frontend</title>
-	<link rel="stylesheet" href="<?= base_url() ?>ui/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?= base_url() ?>ui/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<link rel="stylesheet" href="<?= base_url() ?>ui/css/all.css">
 	<link rel="stylesheet" href="<?= base_url() ?>ui/css/custom.css">
 	
 </head>
