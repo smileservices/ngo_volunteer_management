@@ -9,7 +9,7 @@ class Frontend extends CI_Controller {
 		$where = 'WHERE activ = 1';
 		$data['proiecte'] = $this->proiecte_model->getAll($where);
 
-		$this->load->view('frontend/index', $data);
+		$this->load->view('frontend/index-pre-tabs', $data);
 	}
 
 	public function test()

@@ -4,6 +4,16 @@
 	<script>
 	$.material.init();
 	// select first tab
+
+	// masonry and imagesLoaded
+	var elem = document.querySelector('.grid');
+	imagesLoaded( elem, function() {
+		$('.grid').masonry({
+		  // options
+		  itemSelector: '.grid-item'
+		});
+	});
+	// end
 	$( "#mainPanel ul.nav li:first-child" ).addClass( "active" );
 	$( ".tab-content div.tab-pane:first-child" ).addClass( "active" );
 

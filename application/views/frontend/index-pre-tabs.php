@@ -2,16 +2,18 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="text-center">Aici construim o alternativa politica</h1>
+				<h2 class="text-center">Aici construim o alternativa politica</h2>
 			</div>			
 		</div>		
 			<!-- <a href="<?= base_url() ?>backend/index"><p class="text-center">Backend</p></a> -->
 		<div class="row">
 			<div class="col-md-12">
-				<div class="well well-sm">
-					<h4 class="text-center">Mesaj al Romaniei Curate: </h4>					
-
-					<p>Dragi prieteni din strada si din spatele ecranelor</p>				 
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="text-center">Mesaj al Romaniei Curate: </h4>	
+					</div>		
+					<div class="panel-body">
+					<p>Dragi prieteni din strada si din spatele ecranelor</p>	
 
 					<p>Un sistem politic cu partide nereprezentative si corupte a esuat. Lumea nereprezentata a iesit in 
 					strada. Si multa lume care nu a iesit se simte mai solidara cu protestatatarii decat cu partidele.
@@ -32,26 +34,29 @@
 					informa despre competentele dvs administrative, stiintitifice, creative, de comunicare. </p>
 
 					<p>Daca aveti mesaje personale de adresat oricarui colaborator al Romaniei Curate o puteti face scriind pe adresa <?= safe_mailto('vreausieu@romaniacurata.ro', 'vreausieu@romaniacurata.ro') ?></p>
+					</div>							
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="text-center">Selecteaza una din alternativele de implicare</h1>
+				<h2 class="text-center">Selecteaza una din alternativele de implicare</h2>
 			</div>
 		</div>
-		
+
+		<div class="row grid">
 		<?php foreach ($proiecte as $proiect) { ?>
 
-		<div class="row">
-			<div class="col-md-2">
-				<img src="<?= base_url().'upload/img/'.$proiect->pic ?>" class="img img-responsive" alt="project_name">
-			</div>
-			<div class="col-md-10">
+		<div class="col-md-6 grid-item">
+			<div class="col-md-12 panel panel-standard">
+			<img src="<?= base_url().'upload/img/'.$proiect->pic ?>" class="img img-responsive" alt="project_name">
+			<div class="panel-body">
+			<div class="col-md-12">
 				<h2><?= $proiect->proiect_nume ?></h2>
 				<p><?= $proiect->descriere ?></p>
 			</div>
-			<div class="col-md-12">
+			</div>
+			<div class="col-md-12 panel-footer">
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -75,11 +80,10 @@
 					</tbody>
 				</table>
 			</div>
+			</div>			
 		</div> <!-- end project	 -->
-		<div class="row spacer_50">
-		
-		</div> <!-- end spacer -->
 		<?php } ?> <!-- end foreach -->
+		</div>
 
 				<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

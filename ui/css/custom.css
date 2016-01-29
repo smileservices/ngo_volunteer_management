@@ -21,11 +21,11 @@
 
 .cols2{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-gap:2.5em;-moz-column-gap:2.5em;column-gap:2.5em;} 
 .cols2 p{break-inside:avoid-column;-webkit-column-break-inside:avoid;page-break-inside:avoid;}
+/* pax end */
 
 .navbar {
 	background-color: #444444 !important;
 }
-
 .container .panel {
 	padding: 0;
 }
