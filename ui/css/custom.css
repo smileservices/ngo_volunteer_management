@@ -4,7 +4,6 @@
 .roluri > tr:hover td {background-color: #ddd;cursor: hand;}
 .site-header img {width: 100%;}
 .top_nav {margin-bottom: 0px;}
-h1 { font-size: 2em; line-height: 1.375; margin: 1em 0 1.5em; color: #840201; background-color: #EFE5E5; padding: 0.5em;}
 
 /* pax */
 
@@ -25,5 +24,9 @@ h1 { font-size: 2em; line-height: 1.375; margin: 1em 0 1.5em; color: #840201; ba
 
 .navbar {
 	background-color: #444444 !important;
+}
+
+.container .panel {
+	padding: 0;
 }
 

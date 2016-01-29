@@ -1,14 +1,13 @@
 <?php require 'header.php'; ?>
-		<div class="row">
-			<div class="col-md-12">
-				<h1 class="text-center">Managementul Proiectelor si Voluntarilor</h1>
-			</div>
+		<div class="container">
+			<h1 class="text-center">Interfata Administrare</h1>
+			<p class="lead text-center">Managementul Proiectelor si Voluntarilor</p>
 		</div>
 
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="text-center">
-					<button data-toggle="modal" data-target="#new_proiect" class="btn btn-raised btn-success"><span class="glyphicon glyphicon-plus"> </span> Proiect Nou</button>
+					<button data-toggle="modal" data-target="#new_proiect" class="btn btn-raised btn-primary"><span class="glyphicon glyphicon-plus"> </span> Proiect Nou</button>
 					Proiectele Active:
 				</h2>
 			</div>
@@ -18,16 +17,21 @@
 			if ($proiect->activ==1) { ?>
 
 		<div class="container panel panel-default">
+			<div class="panel-heading">
+				<h2><a href="#" data-toggle="modal" data-target="#edit_proiect" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-proiect-nume="<?= $proiect->proiect_nume ?>" data-proiect-pic="<?= $proiect->pic ?>" data-proiect-activ="<?= $proiect->activ ?>" data-proiect-descriere="<?= $proiect->descriere ?>"><?= $proiect->proiect_nume ?>	</a>
+					<button class="btn btn-raised btn-default" data-toggle="modal" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-target="#create_rol"><span class="glyphicon glyphicon-tasks"> </span> Adauga Rol</button>
+					<a class="btn btn-raised btn-default" href="<?= base_url() ?>backend/voluntari/<?= $proiect->pk_proiect_id ?>"><span class="glyphicon glyphicon-user"> </span> Vezi Voluntarii</a>	
+				</h2> 
+			</div>
+			<div class="panel-body">			
 			<div class="col-md-2">
 				<a href="#" data-toggle="modal" data-target="#edit_pic" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-proiect-pic="<?= $proiect->pic ?>">
 				<img src="<?= base_url().'upload/img/'.$proiect->pic ?>" class="img img-responsive" alt="project_name"></a>
 			</div>
 			<div class="col-md-10">
-				<h2><a href="#" data-toggle="modal" data-target="#edit_proiect" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-proiect-nume="<?= $proiect->proiect_nume ?>" data-proiect-pic="<?= $proiect->pic ?>" data-proiect-activ="<?= $proiect->activ ?>" data-proiect-descriere="<?= $proiect->descriere ?>"><?= $proiect->proiect_nume ?></a>
-					<button class="btn btn-primary" data-toggle="modal" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-target="#create_rol"><span class="glyphicon glyphicon-tasks"> </span> Adauga Rol</button>
-				</h2> 
 				
-				<a class="btn btn-default" href="<?= base_url() ?>backend/voluntari/<?= $proiect->pk_proiect_id ?>"><span class="glyphicon glyphicon-user"> </span> Vezi Voluntarii</a>	
+				
+				
 				<div class="row spacer_25">
 					
 				</div>
@@ -61,6 +65,7 @@
 						<?php } } ?>										
 					</tbody>
 				</table>
+			</div>
 			</div>
 		</div> <!-- end project	 -->
 		<div class="row spacer_50">
@@ -190,28 +195,32 @@
 	<div class="row spacer_50">			
 	</div>
 
-	<div class="row">
-		<a role="button" data-toggle="collapse" href="#proiecteInactive" aria-expanded="false" aria-controls="proiecteInactive">
-		<div class="col-md-12 btn btn-default">		
-			<h2 class="text-center">Proiectele Inactive:</h2>		
-		</div>
-		</a>
-		<div class="col-md-12 collapse" id="proiecteInactive">
+	<a role="button" data-toggle="collapse" href="#proiecteInactive" aria-expanded="false" aria-controls="proiecteInactive" class="btn btn-raised btn-default btn-block">
+		<h2 class="text-center">Proiectele Inactive:</h2>
+	</a>
+
+	<div class="collapse" id="proiecteInactive">
 			<?php foreach ($proiecte as $proiect) { 
 			if ($proiect->activ==0) { ?>
-		<div class="row spacer_50">			
-		</div>
-		<div class="row">
+		<div class="row spacer_25">
+		
+		</div> <!-- end spacer -->
+		<div class="col-md-12 panel panel-default">
+			<div class="panel-heading">
+				<h2><a href="#" data-toggle="modal" data-target="#edit_proiect" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-proiect-nume="<?= $proiect->proiect_nume ?>" data-proiect-pic="<?= $proiect->pic ?>" data-proiect-activ="<?= $proiect->activ ?>" data-proiect-descriere="<?= $proiect->descriere ?>"><?= $proiect->proiect_nume ?>	</a>
+					<button class="btn btn-raised btn-default" data-toggle="modal" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-target="#create_rol"><span class="glyphicon glyphicon-tasks"> </span> Adauga Rol</button>
+					<a class="btn btn-raised btn-default" href="<?= base_url() ?>backend/voluntari/<?= $proiect->pk_proiect_id ?>"><span class="glyphicon glyphicon-user"> </span> Vezi Voluntarii</a>	
+				</h2> 
+			</div>
+			<div class="panel-body">			
 			<div class="col-md-2">
 				<a href="#" data-toggle="modal" data-target="#edit_pic" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-proiect-pic="<?= $proiect->pic ?>">
 				<img src="<?= base_url().'upload/img/'.$proiect->pic ?>" class="img img-responsive" alt="project_name"></a>
 			</div>
 			<div class="col-md-10">
-				<h2><a href="#" data-toggle="modal" data-target="#edit_proiect" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-proiect-nume="<?= $proiect->proiect_nume ?>" data-proiect-pic="<?= $proiect->pic ?>" data-proiect-activ="<?= $proiect->activ ?>" data-proiect-descriere="<?= $proiect->descriere ?>"><?= $proiect->proiect_nume ?></a>
-					<button class="btn btn-primary" data-toggle="modal" data-proiect-id="<?= $proiect->pk_proiect_id ?>" data-target="#create_rol"><span class="glyphicon glyphicon-tasks"> </span> Adauga Rol</button>
-				</h2> 
 				
-				<a class="btn btn-default" href="<?= base_url() ?>backend/voluntari/<?= $proiect->pk_proiect_id ?>"><span class="glyphicon glyphicon-user"> </span> Vezi Voluntarii</a>	
+				
+				
 				<div class="row spacer_25">
 					
 				</div>
@@ -246,13 +255,10 @@
 					</tbody>
 				</table>
 			</div>
+			</div>
 		</div> <!-- end project	 -->
-		<div class="row spacer_50">
-		
-		</div> <!-- end spacer -->
 
 		<?php }} ?> <!-- end foreach -->
-		</div>
 	</div>
 	<div class="row spacer_50">			
 	</div>
@@ -293,8 +299,8 @@
 				   <input type="hidden" name="voluntar_id" value="">
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>
-		        <button type="submit" value="assign" name="submit" class="btn btn-primary">Adauga</button>
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>
+		        <button type="submit" value="assign" name="submit" class="btn btn-raised btn-primary">Adauga</button>
 		      </div>
 		      </form>
 		    </div>
@@ -337,9 +343,9 @@
 				   <input type="hidden" name="match-id" value="">
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>
-		        <button type="submit" value="edit" name="submit" class="btn btn-primary">Modifica</button>
-		        <button type="submit" value="delete" name="submit" class="btn btn-danger">Sterge</button>
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>
+		        <button type="submit" value="edit" name="submit" class="btn btn-raised btn-primary">Modifica</button>
+		        <button type="submit" value="delete" name="submit" class="btn btn-raised btn-danger">Sterge</button>
 		      </div>
 		      </form>
 		    </div>
@@ -381,8 +387,8 @@
 				    <input type="hidden" name="proiectId" value="">
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>
-		        <button type="submit" value="submit" name="submit" class="btn btn-primary">Rol nou</button>
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>
+		        <button type="submit" value="submit" name="submit" class="btn btn-raised btn-primary">Rol nou</button>
 		      </div>
 		      </form>
 		    </div>
@@ -425,16 +431,24 @@
 				   	</div>
 				   </div>
 
-				   	<div class="form-group">	
+				   	<div class="form-group is-fileinput">	
 						<label for="proiectPic" class="col-sm-2 control-label">Adauga</label>	
 						<div class="col-md-10">					   
-							<input type="file" name="pic">					
+							<input type="file" id="inputFile4" name="pic">			
+							<div class="input-group">
+			                <input type="text" readonly="" class="form-control" placeholder="Ataseaza foto...">
+			                <span class="input-group-btn input-group-sm">
+			                  <button type="button" class="btn btn-fab btn-fab-mini">
+			                    <i class="mdi-editor-attach-file"></i>
+			                  </button>
+			                </span>
+			              </div>		
 						</div>						   			   
 					</div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>		        
-		        <button type="submit" value="new" name="submit" class="btn btn-primary">Proiect Nou</button>		        
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>		        
+		        <button type="submit" value="new" name="submit" class="btn btn-raised btn-primary">Proiect Nou</button>		        
 		      </div>
 		      </form>
 		    </div>
@@ -481,9 +495,9 @@
 				   <input type="hidden" name="proiectPic">
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>		        
-		        <button type="submit" value="edit" name="submit" class="btn btn-primary">Modifica</button>
-		        <button type="submit" value="delete" name="submit" class="btn btn-danger">Sterge</button>
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>		        
+		        <button type="submit" value="edit" name="submit" class="btn btn-raised btn-primary">Modifica</button>
+		        <button type="submit" value="delete" name="submit" class="btn btn-raised btn-danger">Sterge</button>
 		      </div>
 		      </form>
 		    </div>
@@ -512,15 +526,23 @@
 				<div class="form-group">	
 					<label for="proiectPic" class="col-sm-2 control-label">Poza Noua</label>	
 					<div class="col-md-10">					   
-						<input type="file" name="pic">					
+						<input type="file" name="pic">
+						<div class="input-group">
+			                <input type="text" readonly="" class="form-control" placeholder="Ataseaza foto...">
+			                <span class="input-group-btn input-group-sm">
+			                  <button type="button" class="btn btn-fab btn-fab-mini">
+			                    <i class="mdi-editor-attach-file"></i>
+			                  </button>
+			                </span>
+			              </div>					
 					</div>						   			   
 				</div>
 				   <input type="hidden" name="proiectId">
 				   <input type="hidden" name="proiectPic">
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>		        
-		        <button type="submit" value="upload" name="submit" class="btn btn-primary">Modifica</button>
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>		        
+		        <button type="submit" value="upload" name="submit" class="btn btn-raised btn-primary">Modifica</button>
 		      </div>
 		      </form>
 		    </div>
@@ -565,9 +587,9 @@
 		        
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>		        
-		        <button type="submit" value="edit" name="submit" class="btn btn-primary">Modifica</button>
-		        <button type="submit" value="delete" name="submit" class="btn btn-danger">Sterge</button>
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>		        
+		        <button type="submit" value="edit" name="submit" class="btn btn-raised btn-primary">Modifica</button>
+		        <button type="submit" value="delete" name="submit" class="btn btn-raised btn-danger">Sterge</button>
 		      </div>
 		      </form>
 		    </div>
@@ -668,9 +690,9 @@
 		        
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Renunta</button>		        
-		        <button type="submit" value="edit" name="submit" class="btn btn-primary">Modifica</button>
-		        <button type="submit" value="delete" name="submit" class="btn btn-danger">Sterge</button>
+		        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Renunta</button>		        
+		        <button type="submit" value="edit" name="submit" class="btn btn-raised btn-primary">Modifica</button>
+		        <button type="submit" value="delete" name="submit" class="btn btn-raised btn-danger">Sterge</button>
 		      </div>
 		      </form>
 		    </div>
