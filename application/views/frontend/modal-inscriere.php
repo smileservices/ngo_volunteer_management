@@ -6,7 +6,7 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		</div> <!-- end modal header -->
     	<div class="modal-body">
-    		<form action="<?= base_url() ?>frontend/inscriere" method="POST">
+    		<form id="inscriere">
     		<fieldset>
     			<legend>Inscrie-te voluntar!</legend>
 			  	<div class="form-group label-floating is-empty">			    
@@ -88,4 +88,21 @@
     	</div> <!-- end modal body -->
     </div>
   </div>
-</div><!-- Modal
+</div><!-- Modal -->
+
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="successLabel" aria-hidden="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		</div>
+		<div class="modal-body">
+			<h1>Va multumim pentru inscriere!</h1>
+			<p>Datele dvs. vor fi preluate de catre responsabilul de proiect pentru a fi contactat.</p>
+			<button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Ok</button>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="ajax"></div>

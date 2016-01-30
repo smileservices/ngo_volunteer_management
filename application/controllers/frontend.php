@@ -27,7 +27,7 @@ class Frontend extends CI_Controller {
 		$this->load->library('email');
 		$this->load->model('voluntari_model');
 
-		if ($this->input->post('submit')) {
+		if ($this->input->post('email')) {
 			if (!$this->voluntari_model->email_exist($this->input->post('email')))  {			
 			$voluntar = array(
 				'nume' => $this->input->post('nume'),
@@ -103,12 +103,12 @@ class Frontend extends CI_Controller {
 				} else {
 					$mail="Nu veti primi instiintare pe e-amil.";
 				}
-			$data['response'] = "Inscrierea a fost efectuata cu succes.".$mail;
+			$data['response'] = "Inscrierea a fost efectuata cu succes. ".$mail;
 
 			} else $data['response'] = "Adresa de mail exista in baza de date. Contacteaza-ne la vreausieu@romaniacurata.ro";
 		}
 
-		$this->load->view('frontend/confirm', $data);
+		echo ($data['response']);
 	}
 
 }
