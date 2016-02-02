@@ -2,6 +2,7 @@
 	<script src="<?= base_url() ?>ui/all.js"></script>
 
 	<script>
+$(document).ready(function(){
 	var base_url = '<?= base_url() ?>';
 	$.material.init();
 	
@@ -20,6 +21,22 @@
 		});
 	});
 	// end
+
+	// $('.roluri-link').click(function(){		
+	// 	setTimeout(function(){
+	// 		$('.grid').masonry();
+	// 	}, 180);
+	// });
+	$('.roluri-link').click(function(){
+		var link = this;
+		$(link).hide();
+	});
+
+	$('.panel-footer')
+		.on('shown.bs.collapse', function() {
+			$('.grid').masonry();
+		});
+
 
 	//triggered when modal is about to be shown
 	$('#myModal').on('show.bs.modal', function(event) {
@@ -48,6 +65,7 @@
 			}
 		});		
 	})
+});
 	</script>
 </body>
 </html>

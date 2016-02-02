@@ -51,12 +51,13 @@
 			<div class="col-md-12 panel panel-standard">
 			<img src="<?= base_url().'upload/img/'.$proiect->pic ?>" class="img img-responsive" alt="project_name">
 			<div class="panel-body">
-			<div class="col-md-12">
-				<h2><?= $proiect->proiect_nume ?></h2>
-				<p><?= $proiect->descriere ?></p>
+				<div class="col-md-12">
+					<h2><?= $proiect->proiect_nume ?></h2>
+					<p><?= $proiect->descriere ?></p>
+				</div>
 			</div>
-			</div>
-			<div class="col-md-12 panel-footer">
+			<a class="roluri-link" href="#rol_<?= $proiect->pk_proiect_id ?>" data-toggle="collapse" aria-expanded="false" aria-controls="rol_<?= $proiect->pk_proiect_id ?>"><i class="glyphicon glyphicon-collapse-down"> </i> Cu ce pot ajuta?</a>
+			<div id="rol_<?= $proiect->pk_proiect_id ?>" class="collapse col-md-12 panel-footer">
 				<table class="table table-striped">
 					<thead>
 						<tr>
