@@ -45,67 +45,34 @@ class Frontend extends CI_Controller {
 			
 			// Trimite mail catre voluntar
 			//message
-			$message = '
-<!doctype html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Confirmare Inscriere</title>
-</head>
-<body bgcolor="#f6f6f6">
-<!-- body -->
-<table bgcolor="#f6f6f6">
-  <tr>
-    <td></td>
-    <td bgcolor="#FFFFFF">
-
-      <!-- content -->
-      <div>
-      <table>
-        <tr>
-          <td>
-            <h4>Buna, '.$voluntar['nume'].'!</h4>
-            <p> Va multumim pentru ca ati ales sa va implicati in formarea unei alternative politice! Veti fi contactat(a) in scurta vreme de moderatorul grupului pentru a stabili o intrevedere. Va rugam sa folositi adresa de email vreausieu@romaniacurata.ro pentru a trimite moderatorului dvs orice propunere relevanta pentru tema grupului de lucru, mentionand din care grup de lucru faceti parte.</p>
-            <p>O zi frumoasa! </p>   
-            <p>Echipa Romania Curata</p>       
-            
-          </td>
-        </tr>
-      </table>
-      </div>
-      <!-- /content -->
-        
-    </td>
-    <td></td>
-  </tr>
-</table>
-<!-- /body -->
-</body>
-</html>
-
-			';
+			$message = $this->load->view('templates/inscriere.mail.php', $voluntar, true);
 			// configure email settings
-		    $config['protocol'] = 'mail';
+		    $config['protocol'] = 'smtp';
+		    $config['smtp_host'] = 'mail.romaniacurata.ro';
+		    $config['smtp_port'] = '587';
+		    $config['smtp_user'] = 'voluntari@romaniacurata.ro'; // email id
+		    $config['smtp_pass'] = 'voluntarirc'; // email password
 		    $config['mailtype'] = 'html';
 		    $config['wordwrap'] = TRUE;
 		    $config['charset'] = 'iso-8859-1';
-		    $config['newline'] = "\r\n";
+		    $config['newline'] = "\r\n"; //use double quotes here
 		    $this->email->initialize($config);
 
-			$this->email->from('vreausieu@romaniacurata.ro', 'Romania Curata Voluntari');
-			// $this->email->to('vladimir@dentaltours.co.uk'); 
+			$this->email->from('voluntari@romaniacurata.ro', 'Voluntari Romania Curata');
 			$this->email->to($voluntar['email']);
 			$this->email->subject('Inscriere ca voluntar');
 			$this->email->message($message);
+
 			if ($this->email->send()) { 
+					echo $this->email->print_debugger();
 					$mail="Vi s-a trimis un mesaj de instiintare pe adresa de e-mail.";
 				} else {
+					echo $this->email->print_debugger();
 					$mail="Nu veti primi instiintare pe e-amil.";
 				}
 			$data['response'] = "Inscrierea a fost efectuata cu succes. ".$mail;
 
-			} else $data['response'] = "Adresa de mail exista in baza de date. Contacteaza-ne la vreausieu@romaniacurata.ro";
+			} else $data['response'] = "Adresa de mail exista in baza de date. Contacteaza-ne la voluntari@romaniacurata.ro";
 		}
 
 		echo ($data['response']);

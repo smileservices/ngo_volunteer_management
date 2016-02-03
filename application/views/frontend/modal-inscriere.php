@@ -98,7 +98,7 @@
 		</div>
 		<div class="modal-body">
 			<h1>Va multumim pentru inscriere!</h1>
-			<p>Datele dvs. vor fi preluate de catre responsabilul de proiect pentru a fi contactat.</p>
+			<p id="response">Datele dvs. vor fi preluate de catre responsabilul de proiect pentru a fi contactat.</p>
 			<button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Ok</button>
 		</div>
 	</div>

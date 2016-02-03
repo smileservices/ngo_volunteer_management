@@ -58,10 +58,9 @@ $(document).ready(function(){
 			data: data,
 			dataType: "text",
 			success: function(data) {
-				console.log(data);
 				$('#myModal').modal('hide');
-				var modalSucces = $('#success');
-				modalSucces.modal('show');
+				$('#response').text(data);
+				$('#success').modal('show');
 			}
 		});		
 	})
