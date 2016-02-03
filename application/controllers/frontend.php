@@ -47,11 +47,11 @@ class Frontend extends CI_Controller {
 			//message
 			$message = $this->load->view('templates/inscriere.mail.php', $voluntar, true);
 			// configure email settings
-		    $config['protocol'] = 'smtp';
-		    $config['smtp_host'] = 'mail.romaniacurata.ro';
-		    $config['smtp_port'] = '587';
-		    $config['smtp_user'] = 'voluntari@romaniacurata.ro'; // email id
-		    $config['smtp_pass'] = 'voluntarirc'; // email password
+		    $config['protocol'] = 'mail';
+		    // $config['smtp_host'] = 'mail.romaniacurata.ro';
+		    // $config['smtp_port'] = '587';
+		    // $config['smtp_user'] = 'voluntari@romaniacurata.ro'; // email id
+		    // $config['smtp_pass'] = 'voluntarirc'; // email password
 		    $config['mailtype'] = 'html';
 		    $config['wordwrap'] = TRUE;
 		    $config['charset'] = 'iso-8859-1';
@@ -64,10 +64,9 @@ class Frontend extends CI_Controller {
 			$this->email->message($message);
 
 			if ($this->email->send()) { 
-					echo $this->email->print_debugger();
 					$mail="Vi s-a trimis un mesaj de instiintare pe adresa de e-mail.";
 				} else {
-					echo $this->email->print_debugger();
+					//echo $this->email->print_debugger();
 					$mail="Nu veti primi instiintare pe e-amil.";
 				}
 			$data['response'] = "Inscrierea a fost efectuata cu succes. ".$mail;
