@@ -4,7 +4,6 @@
 .roluri > tr:hover td {background-color: #ddd;cursor: hand;}
 .site-header img {width: 100%;}
 .top_nav {margin-bottom: 0px;}
-h1 { font-size: 2em; line-height: 1.375; margin: 1em 0 1.5em; color: #840201; background-color: #EFE5E5; padding: 0.5em;}
 
 /* pax */
 
@@ -22,4 +21,48 @@ h1 { font-size: 2em; line-height: 1.375; margin: 1em 0 1.5em; color: #840201; ba
 
 .cols2{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-gap:2.5em;-moz-column-gap:2.5em;column-gap:2.5em;} 
 .cols2 p{break-inside:avoid-column;-webkit-column-break-inside:avoid;page-break-inside:avoid;}
+/* pax end */
 
+.navbar {
+	background-color: #444444 !important;
+}
+.container .panel {
+	padding: 0;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.ajax {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .ajax {
+    display: block;
+}
+
+.roluri-link {
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+}

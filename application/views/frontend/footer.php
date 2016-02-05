@@ -1,22 +1,70 @@
 	</div> <!-- END CONTAINER -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
-	<script src="<?= base_url() ?>ui/js/bootstrap.min.js"></script>
+	<script src="<?= base_url() ?>ui/all.js"></script>
 
 	<script>
-	// select first tab
-	$( "#mainPanel ul.nav li:first-child" ).addClass( "active" );
-	$( ".tab-content div.tab-pane:first-child" ).addClass( "active" );
+$(document).ready(function(){
+	var base_url = '<?= base_url() ?>';
+	$.material.init();
+	
+	// ajax loading screen
+	$(document).on({
+    	ajaxStart: function() { $('body').addClass("loading"); },
+    	ajaxStop: function() { $('body').removeClass("loading"); }    
+	});
 
-		//triggered when modal is about to be shown
-		$('#myModal').on('show.bs.modal', function(event) {
-
-		    //get data-id attribute of the clicked element
-		    var row = $(event.relatedTarget);
-		    var rolId = row.data('rol-id');
-		    console.log(rolId);
-		    //populate the textbox
-		    $(event.currentTarget).find('input[name="rolId"]').val(rolId);
+	// masonry and imagesLoaded
+	var elem = document.querySelector('.grid');
+	imagesLoaded( elem, function() {
+		$('.grid').masonry({
+		  // options
+		  itemSelector: '.grid-item'
 		});
+	});
+	// end
+
+	// $('.roluri-link').click(function(){		
+	// 	setTimeout(function(){
+	// 		$('.grid').masonry();
+	// 	}, 180);
+	// });
+	$('.roluri-link').click(function(){
+		var link = this;
+		$(link).hide();
+	});
+
+	$('.panel-footer')
+		.on('shown.bs.collapse', function() {
+			$('.grid').masonry();
+		});
+
+
+	//triggered when modal is about to be shown
+	$('#myModal').on('show.bs.modal', function(event) {
+	    //get data-id attribute of the clicked element
+	    var row = $(event.relatedTarget);
+	    var rolId = row.data('rol-id');
+	    //console.log(rolId);
+	    //populate the textbox
+	    $(event.currentTarget).find('input[name="rolId"]').val(rolId);
+	});
+
+	// form submit
+	$('#inscriere').submit(function(event) {
+		event.preventDefault();
+		var data = $( this ).serialize();
+		$.ajax({
+			method: "POST",
+			url: base_url+"frontend/inscriere",
+			data: data,
+			dataType: "text",
+			success: function(data) {
+				$('#myModal').modal('hide');
+				$('#response').text(data);
+				$('#success').modal('show');
+			}
+		});		
+	})
+});
 	</script>
 </body>
 </html>
