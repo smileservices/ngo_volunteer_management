@@ -4,10 +4,11 @@ class Backend extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+		$this->load->library('ion_auth');
 	}
 
 	public function index()	{
-		if($this->session->userdata('logged_in'))  {
+		if($this->ion_auth->logged_in())  {
 		    $session_data = $this->session->userdata('logged_in');
 		    $data['user_email'] = $session_data['user_email'];
 
@@ -25,11 +26,11 @@ class Backend extends CI_Controller {
 		}
 	   else  {
 	     //If no session, redirect to login page
-	     redirect('login', 'refresh');  }
+	     redirect('auth', 'refresh');  }
 	}
 
 	 public function logout() {
-	   $this->session->unset_userdata('logged_in');
+	   $this->ion_auth->logout();
 	   redirect('frontend', 'refresh');
 	 }
 
